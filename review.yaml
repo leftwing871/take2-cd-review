@@ -1,0 +1,42 @@
+##################################################################################################
+# Review service
+##################################################################################################
+apiVersion: v1
+kind: Service
+metadata:
+  name: review
+  labels:
+    app: review
+    service: review
+spec:
+  ports:
+  - port: 8080
+    name: http
+  selector:
+    app: review
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: review-v1
+  labels:
+    app: review
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: review
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: review
+        version: v1
+    spec:
+      containers:
+      - name: review
+        image: leftwing871/book:1.0.1
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
