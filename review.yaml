@@ -40,3 +40,55 @@ spec:
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: review-v2
+  labels:
+    app: review
+    version: v2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: review
+      version: v2
+  template:
+    metadata:
+      labels:
+        app: review
+        version: v2
+    spec:
+      containers:
+      - name: review
+        image: leftwing871/book:1.0.2
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: review-v3
+  labels:
+    app: review
+    version: v3
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: review
+      version: v3
+  template:
+    metadata:
+      labels:
+        app: review
+        version: v3
+    spec:
+      containers:
+      - name: review
+        image: leftwing871/book:1.0.3
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
