@@ -36,7 +36,7 @@ spec:
     spec:
       containers:
       - name: review
-        image: leftwing871/book:1.0.1
+        image: leftwing871/review:1.0.1
         imagePullPolicy: IfNotPresent
         env:
         - name: CLUSTER_IP_rating
@@ -65,7 +65,7 @@ spec:
     spec:
       containers:
       - name: review
-        image: leftwing871/book:1.0.2
+        image: leftwing871/review:1.0.2
         imagePullPolicy: IfNotPresent
         env:
         - name: CLUSTER_IP_rating
@@ -94,7 +94,7 @@ spec:
     spec:
       containers:
       - name: review
-        image: leftwing871/book:1.0.3
+        image: leftwing871/review:1.0.3
         imagePullPolicy: IfNotPresent
         env:
         - name: CLUSTER_IP_rating
